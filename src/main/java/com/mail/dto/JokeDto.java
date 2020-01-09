@@ -1,6 +1,5 @@
 package com.mail.dto;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 
@@ -10,7 +9,7 @@ import java.util.ArrayList;
  * Klasa za rukovanje sa sala objektima
  *
  */
-public class JokeDto implements Serializable{
+public class JokeDto {
 	private ArrayList < Object > categories = new ArrayList < Object > ();
 	private String created_at;
 	private String icon_url;
@@ -26,7 +25,6 @@ public class JokeDto implements Serializable{
 
 	public JokeDto(ArrayList<Object> categories, String created_at, String icon_url, String id, String updated_at,
 			String url, String value) {
-		super();
 		this.categories = categories;
 		this.created_at = created_at;
 		this.icon_url = icon_url;
