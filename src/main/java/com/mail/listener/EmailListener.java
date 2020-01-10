@@ -3,7 +3,7 @@ package com.mail.listener;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Component;
 
-import com.mail.dto.JokeDto;
+import com.mail.dto.JokeMail;
 import com.mail.listener.helper.MessageHelper;
 import com.mail.service.EmailService;
 
@@ -23,8 +23,8 @@ public class EmailListener {
 
     @JmsListener(destination = "${destination.sendEmails}", concurrency = "5-10")
     public void addOrder(Message message) throws JMSException {
-        JokeDto joke = messageHelper.getMessage(message, JokeDto.class);
-        emailService.sendSimpleMessage("phrazevideos@gmail.com", "New joke for you!", joke.toString());
+        JokeMail joke = messageHelper.getMessage(message, JokeMail.class);
+        emailService.sendSimpleMessage(joke.getUserMail(), "New joke for you!", joke.toString());
     }
 }
 
